@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SULVENT — Event Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-mark">S</span><span>SULVENT</span></a>
+    <p class="workspace">WORKSPACE</p>
+    <nav>
+      <button class="nav-item active" data-page="overview"><span>▦</span> Overview</button>
+      <button class="nav-item" data-page="events"><span>◫</span> Events <b>3</b></button>
+      <button class="nav-item" data-page="calendar"><span>□</span> Calendar</button>
+      <button class="nav-item" data-page="attendees"><span>♙</span> Attendees</button>
+      <button class="nav-item" data-page="team"><span>◌</span> Team</button>
+      <p class="workspace nav-section">OPERATIONS</p>
+      <button class="nav-item" data-page="tenants"><span>⌂</span> Tenant & venue</button>
+      <button class="nav-item" data-page="sponsors"><span>◇</span> Sponsors</button>
+      <button class="nav-item" data-page="finance"><span>₨</span> Finance</button>
+      <button class="nav-item" data-page="donations"><span>♡</span> Donations</button>
+      <button class="nav-item" data-page="marketing"><span>↗</span> Marketing</button>
+      <button class="nav-item" data-page="logistics"><span>▣</span> Logistics</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <button class="nav-item" data-page="settings"><span>⚙</span> Settings</button>
+      <div class="profile"><div class="avatar">NA</div><div><strong>Naafi Agency</strong><small>Event organizer</small></div><span>⋮</span></div>
+    </div>
+  </aside>
+
+  <div id="authGate" class="auth-gate" hidden></div>
+  <div id="workspaceGate" class="workspace-gate" hidden></div>
+  <main>
+    <header>
+      <div><p class="eyebrow" id="dateLabel">SATURDAY, 08 NOVEMBER</p><h1 id="pageTitle">Good morning, Naafi <span>✦</span></h1></div>
+      <div class="header-actions"><button class="icon-button" aria-label="Notifikasi">♧<i></i></button><button class="new-event" id="newEventBtn"><span>+</span> New event</button></div>
+    </header>
+
+    <section id="overview" class="page active-page">
+      <div class="spotlight">
+        <div class="spotlight-copy"><span class="live-dot" id="heroStatus">LIVE NOW</span><h2 id="heroEventName">JAKARTA<br>CREATIVE<br>FORUM <em>2026</em></h2><p id="heroEventMeta">08 Nov 2026 · 09:00 — 17:00 WIB</p><button class="light-button">Open event <span>↗</span></button></div>
+        <div class="spotlight-side"><div class="progress-ring"><span>68<small>%</small></span></div><p>Event readiness</p><div class="countdown"><span><b>00</b>days</span><span><b>03</b>hrs</span><span><b>24</b>min</span></div></div>
+      </div>
+      <div class="stats">
+        <article><p>Total attendees <span class="up">↗ 12.5%</span></p><strong id="attendeeMetric">1,248</strong><small id="attendeeMetricNote">vs. 1,109 last event</small><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article><p>Ticket revenue <span class="up">↗ 8.2%</span></p><strong>Rp 86.4<span class="unit">jt</span></strong><small>87% of target</small><div class="revenue-line">╱╲__╱╲___╱╲</div></article>
+        <article><p>Check-in rate</p><strong>842 <span class="unit">/ 1,248</span></strong><small>Doors open in 2 hours</small><div class="check-progress"><i></i></div></article>
+      </div>
+      <div class="content-grid">
+        <section class="panel timeline"><div class="panel-heading"><div><p class="eyebrow">TODAY'S RUN OF SHOW</p><h3>Event timeline</h3></div><button class="text-button">View schedule →</button></div>
+          <div class="timeline-item done"><time>07:00</time><span class="node"></span><div><strong>Vendor & crew call time</strong><p>All teams · Main Hall</p></div><b>Done</b></div>
+          <div class="timeline-item current"><time>09:00</time><span class="node"></span><div><strong>Registration opens</strong><p>Front gate · Registration Team</p></div><b>Now</b></div>
+          <div class="timeline-item"><time>10:00</time><span class="node"></span><div><strong>Opening keynote</strong><p>Grand Ballroom · Stage Team</p></div></div>
+          <div class="timeline-item"><time>12:30</time><span class="node"></span><div><strong>Lunch & networking</strong><p>Garden Terrace · F&B Team</p></div></div>
+        </section>
+        <section class="panel tasks"><div class="panel-heading"><div><p class="eyebrow">PRIORITY QUEUE</p><h3>Tasks to finish</h3></div><span class="task-count">4 left</span></div>
+          <label><input type="checkbox"><span>Confirm keynote arrival</span><small>High</small></label>
+          <label><input type="checkbox"><span>Print VIP name cards</span><small>Today</small></label>
+          <label><input type="checkbox"><span>Brief photography team</span><small>Today</small></label>
+          <label><input type="checkbox"><span>Send post-event survey</span><small>Tomorrow</small></label>
+          <button class="add-task" id="addTaskBtn">+ Add task</button>
+        </section>
+      </div>
+    </section>
+
+    <section id="events" class="page"><div class="page-head"><div><p class="eyebrow">EVENT PORTFOLIO</p><h2>Your events</h2></div><button class="new-event" id="newEventBtn2">+ New event</button></div><div class="event-list" id="eventList"></div></section>
+    <section id="calendar" class="page"><div class="page-head"><div><p class="eyebrow">NOVEMBER 2026</p><h2>Calendar</h2></div></div><div class="calendar-box" id="calendarBox"></div></section>
+    <section id="attendees" class="page"><div class="page-head"><div><p class="eyebrow" id="attendeeEventLabel">EVENT GUESTS</p><h2>Attendees</h2></div><button class="new-event" id="addAttendeeBtn">+ Add attendee</button></div><div class="attendee-toolbar"><input placeholder="Search attendee..." /><span id="attendeeCount">0 registered</span></div><div class="attendee-list" id="attendeeList"></div></section>
+    <section id="team" class="page"><div class="page-head"><div><div><p class="eyebrow">COLLABORATION</p><h2>Your team</h2></div><button class="new-event" id="addTeamBtn">+ Add team member</button></div><div class="team-grid" id="teamGrid"></div></section>
+    <section id="tenants" class="page module-page" data-module="tenants"></section>
+    <section id="sponsors" class="page module-page" data-module="sponsors"></section>
+    <section id="finance" class="page module-page" data-module="finance"></section>
+    <section id="donations" class="page module-page" data-module="donations"></section>
+    <section id="marketing" class="page module-page" data-module="marketing"></section>
+    <section id="logistics" class="page module-page" data-module="logistics"></section>
+    <section id="settings" class="page"><p class="eyebrow">WORKSPACE</p><h2>Settings</h2><div class="panel settings"><label>Organization name<input value="Naafi Agency" /></label><label>Primary contact<input value="hello@naafi.agency" /></label><button class="new-event">Save changes</button></div></section>
+  </main>
+
+  <dialog id="eventModal"><form method="dialog"><button class="close" value="cancel">×</button><p class="eyebrow">CREATE EVENT</p><h2>Start something memorable.</h2><label>Event name<input id="eventName" placeholder="e.g. SULVENT Launch Party" required></label><label>Date<input type="date" id="eventDate" required></label><label>Venue<input id="eventVenue" placeholder="Event location"></label><button class="new-event" value="default" id="createEvent">Create event →</button></form></dialog>
+  <dialog id="moduleModal"><form id="moduleForm"><button class="close" type="button" id="closeModuleModal">×</button><p class="eyebrow" id="moduleModalLabel">OPERATIONS</p><h2 id="moduleModalTitle">Tambah data</h2><label id="modulePrimaryLabel">Nama<input id="modulePrimary" required maxlength="160"></label><label id="moduleSecondaryLabel">Keterangan<input id="moduleSecondary" maxlength="160"></label><label id="moduleAmountLabel" hidden>Nominal (Rp)<input id="moduleAmount" type="number" min="0" step="1000"></label><label>Status<select id="moduleStatus"></select></label><button class="new-event" type="submit">Simpan data →</button></form></dialog>
+  <dialog id="peopleModal"><form id="peopleForm"><button class="close" type="button" id="closePeopleModal">×</button><p class="eyebrow" id="peopleModalLabel">PEOPLE</p><h2 id="peopleModalTitle">Tambah data</h2><label>Nama lengkap<input id="personName" required maxlength="160"></label><label id="personDetailLabel">Organisasi / jabatan<input id="personDetail" required maxlength="160"></label><label id="personStatusLabel">Status<select id="personStatus"></select></label><button class="new-event" type="submit">Simpan data →</button></form></dialog>
+  <div class="toast" id="toast"></div>
+  <script src="config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
